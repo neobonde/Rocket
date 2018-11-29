@@ -1,5 +1,6 @@
 {
     "python.linting.pylintArgs": [
         "--extension-pkg-whitelist=pygame"
-    ]
+    ],
+    "python.linting.pylintEnabled": true
 }

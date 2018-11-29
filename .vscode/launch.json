@@ -5,12 +5,12 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Rocket",
+            "name": "Python: Current File (Integrated Terminal)",
             "type": "python",
             "request": "launch",
-            "cwd": "${workspaceFolder}",
-            "program": "${workspaceFolder}/Rocket.py",
+            "cwd": "${workspaceFolder}/",
+            "program": "${workspaceFolder}/main.py",
             "console": "integratedTerminal"
-        }
+        },
     ]
 }

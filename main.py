@@ -1,7 +1,7 @@
 """
 Main file for the Rocket game project
 """
-from scripts.game import Game
+from Rocket.game import Game
 
 def main():
     """
