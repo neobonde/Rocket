@@ -5,6 +5,7 @@ import os
 import configparser
 
 from Rocket.game_loop import GameLoop
+from Rocket.renderer import Renderer
 
 from Rocket.rocket import Rocket
 
@@ -22,9 +23,10 @@ class Game():
         framerate = int(settings['RENDERING']['framerate'])
         size = [int(side)
                 for side in settings['RENDERING']['resolution'].split("x")]
-        screen = pygame.display.set_mode(size)
 
+        Renderer.create_viewport(size[0], size[1])
+
+        # TODO This should be moved to some sort of level or scene manager!
         rocket = Rocket()
 
-        # TODO screen should not be passed like this!
-        GameLoop(screen).start()
+        GameLoop().start()

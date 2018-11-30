@@ -10,23 +10,18 @@ class EntityBank():
 
 class Entity():
     def __init__(self):
-        self.sprite = None
-        self.rect = None
         EntityBank.add(self)
+        self.components = []
+
+    def get_component(self, component_type):
+        return next(component for component in self.components if isinstance(component, component_type))
+
+    def add_component(self,component):
+        component.set_parent(self)
+        self.components.append(component)
+        component.setup()
+
 
     def setup(self):
-        pass
-
-    def pre_update(self):
-        pass
-
-    def update(self):
-        pass
-
-    def draw(self, screen):
-        if self.sprite is not None and self.rect is not None:
-            screen.blit(self.sprite, self.rect)
-
-    def post_update(self):
         pass
 

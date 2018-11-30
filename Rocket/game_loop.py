@@ -2,6 +2,7 @@ import pygame
 from time import time
 
 from Rocket.entity import EntityBank
+from Rocket.renderer import Renderer
 
 class Time():
     
@@ -10,9 +11,7 @@ class Time():
 
 #TODO Make this a singleton?
 class GameLoop():
-    def __init__(self, screen):
-        self.screen = screen
-    
+
     def start(self):
         [e.setup() for e in EntityBank.entities]
         while 1:
@@ -20,19 +19,23 @@ class GameLoop():
             
             # Events 
             for event in pygame.event.get():
-                if event.type == pygame.QUIT: # TODO Add escape key exit
+                if event.type == pygame.QUIT:
                     pygame.quit()
                     return
-
-            [e.pre_update() for e in EntityBank.entities]
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_ESCAPE:
+                        pygame.quit()
+                        return
             
-            [e.update() for e in EntityBank.entities]
+            components = []
+            components.extend([e.components for e in EntityBank.entities][0])
+
+            [c.pre_update() for c in components]
+            [c.update() for c in components]
 
             # Rendering
-            self.screen.fill((0, 0, 0))
-            [e.draw(self.screen) for e in EntityBank.entities]
-            pygame.display.flip()
+            Renderer.render_pool()
             
-            [e.post_update() for e in EntityBank.entities]
+            [c.post_update() for c in components]
             
             Time.delta_time = time() - start_time
