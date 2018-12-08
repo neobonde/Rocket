@@ -6,6 +6,9 @@ from Rocket.component import Transform, ImageSprite, PlayerController
 class Rocket(Entity):
 
     def setup(self):
-        self.add_component(Transform(0,0))
+        transform = self.add_component(Transform(0,0))
         self.add_component(ImageSprite("assets/Rocket.png"))
-        self.add_component(PlayerController())
+        controller = self.add_component(PlayerController())
+
+        transform.set_position(480/2,750)
+        controller.speed = 200

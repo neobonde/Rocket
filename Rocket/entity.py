@@ -20,6 +20,7 @@ class Entity():
         component.set_parent(self)
         self.components.append(component)
         component.setup()
+        return component
 
 
     def setup(self):

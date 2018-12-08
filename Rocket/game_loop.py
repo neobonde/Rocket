@@ -4,6 +4,8 @@ from time import time
 from Rocket.entity import EntityBank
 from Rocket.renderer import Renderer
 from Rocket.event_handler import EventHandler, Keys
+from Rocket.level_manager import LevelManager
+
 
 class Time():
     
@@ -14,6 +16,9 @@ class Time():
 class GameLoop():
 
     def start(self):
+
+        LevelManager.start_game()    
+
         [e.setup() for e in EntityBank.entities]
 
         # Exit events, one for a key and one for the X button on the screen
