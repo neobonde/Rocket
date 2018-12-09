@@ -4,8 +4,9 @@ import sys
 import os
 import configparser
 
-from Rocket.game_loop import GameLoop
-from Rocket.renderer import Renderer
+from Rocket.Engine.game_loop import GameLoop
+from Rocket.Engine.renderer import Renderer
+
 
 from Rocket.level01 import InfiniteLevel
 

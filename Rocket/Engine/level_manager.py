@@ -1,4 +1,4 @@
-from Rocket.event_handler import EventHandler
+from Rocket.Engine.event_handler import EventHandler
 
 class LevelException(Exception):
     pass

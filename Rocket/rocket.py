@@ -1,6 +1,8 @@
-from Rocket.entity import Entity
-from Rocket.game_loop import Time
-from Rocket.component import Transform, ImageSprite, PlayerController
+from Rocket.Engine.entity import Entity
+from Rocket.Engine.game_loop import Time
+from Rocket.Engine.component import Transform, ImageSprite
+
+from Rocket.player_controller import PlayerController
 
 
 class Rocket(Entity):
