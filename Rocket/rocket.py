@@ -8,9 +8,8 @@ from Rocket.player_controller import PlayerController
 class Rocket(Entity):
 
     def setup(self):
-        transform = self.add_component(Transform(0,0))
-        self.add_component(ImageSprite("assets/Rocket.png"))
+        self.add_component(Transform(480/2,750))
+        self.add_component(ImageSprite("assets/Rocket.png",subpixel=True))
         controller = self.add_component(PlayerController())
 
-        transform.set_position(480/2,750)
-        controller.speed = 200
+        controller.speed = 100

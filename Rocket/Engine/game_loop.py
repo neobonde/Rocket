@@ -11,6 +11,11 @@ class Time():
     
     delta_time = 0
 
+    @staticmethod
+    def get_fps():
+        if Time.delta_time > 0:
+            return 1/Time.delta_time
+        return float("inf")
 
 #TODO Make this a singleton?
 class GameLoop():
@@ -31,8 +36,7 @@ class GameLoop():
             # Events 
             EventHandler.handle_events()
 
-            components = []
-            components.extend([e.components for e in EntityBank.entities][0])
+            components = [component for entities in EntityBank.entities for component in entities.components]
 
             [c.pre_update() for c in components]
             [c.update() for c in components]
@@ -43,3 +47,4 @@ class GameLoop():
             [c.post_update() for c in components]
             
             Time.delta_time = time() - start_time
+            # print(Time.get_fps())

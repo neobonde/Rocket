@@ -15,6 +15,18 @@ class Renderer():
         Renderer._screen = display.set_mode(Renderer._screen_size)
 
     @staticmethod
+    def get_viewport_size():
+        return Renderer._screen_size
+
+    @staticmethod
+    def get_viewport_width():
+        return Renderer._screen_size[1]
+
+    @staticmethod
+    def get_viewport_height():
+        return Renderer._screen_size[0]
+
+    @staticmethod
     def add_drawable(drawable):
         #TODO check if object has function draw
         Renderer._pool.append(drawable)
