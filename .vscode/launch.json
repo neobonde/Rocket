@@ -13,5 +13,13 @@
             "program": "${workspaceFolder}/main.py",
             "console": "integratedTerminal"
         },
+        {
+            "name": "Debug scratchpad",
+            "type": "python",
+            "request": "launch",
+            "cwd": "${workspaceFolder}/",
+            "program": "${workspaceFolder}/scratchpad.py",
+            "console": "integratedTerminal"
+        },
     ]
 }
