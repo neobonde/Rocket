@@ -12,6 +12,10 @@ class Time():
     delta_time = 0
 
     @staticmethod
+    def get_time():
+        return time()
+
+    @staticmethod
     def get_fps():
         if Time.delta_time > 0:
             return 1/Time.delta_time
@@ -24,14 +28,12 @@ class GameLoop():
 
         LevelManager.start_game()    
 
-        [e.setup() for e in EntityBank.entities]
-
         # Exit events, one for a key and one for the X button on the screen
         EventHandler.add_event_callback('Quit',EventHandler.quit_game)
         Keys.add_down_callback('escape',EventHandler.quit_game)
         
         while 1:
-            start_time = time() 
+            start_time = Time.get_time() 
             
             # Events 
             EventHandler.handle_events()
@@ -46,5 +48,5 @@ class GameLoop():
             
             [c.post_update() for c in components]
             
-            Time.delta_time = time() - start_time
+            Time.delta_time = Time.get_time() - start_time
             # print(Time.get_fps())

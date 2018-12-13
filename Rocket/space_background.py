@@ -19,5 +19,5 @@ class AutoScroll(Script):
 class SpaceBackground(Entity):
     def setup(self):
         self.add_component(Transform(0,0))
-        self.add_component(ImageSprite("assets/Space.png",subpixel=True, tile=True))
+        self.add_component(ImageSprite("assets/Space.png",subpixel=False, tile=True))
         self.add_component(AutoScroll())

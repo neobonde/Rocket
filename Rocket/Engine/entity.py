@@ -9,9 +9,10 @@ class EntityBank():
 
 
 class Entity():
-    def __init__(self):
+    def __init__(self, *args, **kwargs):
         EntityBank.add(self)
         self.components = []
+        self.setup(*args, **kwargs)
 
     def get_component(self, component_type):
         return next(component for component in self.components if isinstance(component, component_type))

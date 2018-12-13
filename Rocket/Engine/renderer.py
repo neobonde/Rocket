@@ -9,8 +9,8 @@ class Renderer():
     _clear_color = (0,0,0)
 
     @staticmethod
-    def create_viewport(height, width, background_color = (0,0,0)):
-        Renderer._screen_size = (height, width)
+    def create_viewport(width, height, background_color = (0,0,0)):
+        Renderer._screen_size = (width, height)
         Renderer._clear_color = background_color
         Renderer._screen = display.set_mode(Renderer._screen_size)
 
@@ -20,11 +20,11 @@ class Renderer():
 
     @staticmethod
     def get_viewport_width():
-        return Renderer._screen_size[1]
+        return Renderer._screen_size[0]
 
     @staticmethod
     def get_viewport_height():
-        return Renderer._screen_size[0]
+        return Renderer._screen_size[1]
 
     @staticmethod
     def add_drawable(drawable):

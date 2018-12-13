@@ -36,7 +36,7 @@ class SubPixelSurface():
         y_level -- Number of sub-pixel levels in y (same as x if omited)        
         
         """
-                
+        self.rotation = 270
         self.x_level = x_level
         self.y_level = y_level or x_level
         
